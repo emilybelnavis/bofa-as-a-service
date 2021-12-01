@@ -1,0 +1,52 @@
+{
+  "name": "bofa-as-a-service",
+  "description": "bofa deez nuts lmao",
+  "version": "4.2.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --require dotenv/config --exec babel-node --extensions '.ts' src/index.ts",
+    "build:clean": "rm -rf dist/ && mkdir dist",
+    "build:server": "babel src --out-dir-dist/ --extensions '.ts'",
+    "build": "npm run build:clean && num run build:server",
+    "serve": "NODE_ENV=production node dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/samanthaerachelb/bofa-as-a-service.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "compressible": "^2.0.18",
+    "dd-trace": "^1.5.1",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.5.1",
+    "express-trailing-slash": "^1.0.0",
+    "helmet": "^4.6.0",
+    "hot-shots": "^9.0.0",
+    "node-persist": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@babel/register": "^7.16.0",
+    "@types/express": "^4.17.13",
+    "@types/express-rate-limit": "^5.1.3",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^10.17.60",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-static-fs": "^3.0.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.2"
+  }
+}
