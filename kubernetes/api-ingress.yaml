@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: bofa-aas-stable-ingress
+  namespace: bofa-as-a-service
+  labels:
+    app.kubernetes.io/name: bofa-aas-stable-ingress
+    app.kubernetes.io/instance: bofa-aas
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      proxy_ssl_name sucon.me;
+      proxy_ssl_server_name on;
+spec:
+  tls:
+    - hosts:
+        - sucon.me
+      secretName: api-certificates
+  rules:
+    - host: sucon.me
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: bofa-aas-stable
+              servicePort: "80"
